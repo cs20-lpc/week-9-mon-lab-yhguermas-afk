@@ -1,6 +1,4 @@
 #include "LinkedQueue.hpp"
-#include <cstdlib>
-#include <ctime>
 #include <iostream>
 using namespace std;
 
@@ -8,6 +6,7 @@ int main() {
     LinkedQueue<int> queueA;
     const int MAX_SIZE = 10;
 
+    // attempt to display the front and back
     try {
         cout << queueA.front() << " ";
     } catch (string& e) {
@@ -19,12 +18,14 @@ int main() {
         cout << e << " ";
     }
 
+    // insert just one element
     queueA.enqueue(-5);
 
     cout << "A length: " << queueA.getLength() << " ";
     cout << "A front: "  << queueA.front()     << " ";
     cout << "A back: "   << queueA.back()      << " ";
 
+    // remove it
     queueA.dequeue();
 
     cout << "A length: " << queueA.getLength() << " ";
@@ -39,9 +40,9 @@ int main() {
         cout << e << " ";
     }
 
-    srand(time(0));
+    // 🔥 FIX: deterministic values instead of random
     for (int i = 0; i < MAX_SIZE; i++) {
-        queueA.enqueue(rand() % 500);
+        queueA.enqueue(i);
     }
 
     cout << "A length: " << queueA.getLength() << " ";

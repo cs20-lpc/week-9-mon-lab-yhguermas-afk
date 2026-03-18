@@ -27,7 +27,7 @@ LinkedQueue<T>::~LinkedQueue() {
 template <typename T>
 T LinkedQueue<T>::back() const {
     if (this->isEmpty()) {
-        throw string("Error: queue is empty");
+        throw string("back: error, queue is empty, cannot access the back");
     }
     return last->value;
 }
@@ -55,7 +55,7 @@ void LinkedQueue<T>::copy(const LinkedQueue<T>& copyObj) {
 template <typename T>
 void LinkedQueue<T>::dequeue() {
     if (this->isEmpty()) {
-        throw string("Error: cannot dequeue from empty queue");
+        throw string("error, queue is empty, cannot dequeue");
     }
 
     Node* temp = head;
@@ -87,7 +87,7 @@ void LinkedQueue<T>::enqueue(const T& elem) {
 template <typename T>
 T LinkedQueue<T>::front() const {
     if (this->isEmpty()) {
-        throw string("Error: queue is empty");
+        throw string("front: error, queue is empty, cannot access the front");
     }
     return head->value;
 }
